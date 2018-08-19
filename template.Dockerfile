@@ -31,7 +31,7 @@ RUN set -ex && \
       # Update apt-get and start install cmd
       apt-get update && apt-get install -qq -y --no-install-recommends \
       # Basic required packages for all rails images
-      build-essential git vim gnupg2 \
+      build-essential git vim gnupg2 && \
       # Install sops from downloaded .deb file
       dpkg -i /tmp/sops.deb && \
       # Install node (only installs 8.x apt repo & key)
