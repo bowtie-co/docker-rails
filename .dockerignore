@@ -1,0 +1,8 @@
+tmp
+.DS_Store
+.git
+LICENSE
+README.md
+Dockerfile
+update.sh
+deploy.sh
