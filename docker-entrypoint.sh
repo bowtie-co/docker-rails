@@ -42,7 +42,8 @@ missing_env_var() {
   fi
 }
 
-APP_ENV=${APP_ENV:-development}
+RAILS_ENV=${RAILS_ENV:-development}
+APP_ENV=${APP_ENV:-$RAILS_ENV}
 ENV_FILE=".env.$APP_ENV"
 
 if [ ! -f $ENV_FILE ]; then
