@@ -1,5 +1,5 @@
 # Use Bowtie Ruby base image (includes jemalloc)
-FROM bowtie/ruby:2.4
+FROM bowtie/ruby:2.5.1
 
 # Baller maintainers
 LABEL maintainer "Charlie McClung <charlie@bowtie.co>, Brandon Cabael <brandon@bowtie.co>"
