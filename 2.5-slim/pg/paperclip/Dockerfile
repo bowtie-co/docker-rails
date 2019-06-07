@@ -16,7 +16,7 @@ RUN mkdir -p $INSTALL_PATH
 WORKDIR $INSTALL_PATH
 
 ENV SOPS_SHA 6b1d245c59c46b0f7c1f5b9fa789e0236bdcb44b0602ca1a7cadb6d0aac64c3c
-ENV NODE_SHA 30084249bdd56119cb61be682a56829a11a4c94e21c5d005d326dedb66776104
+ENV NODE_SHA d324fc90ddeba1d72460fb7a5d0cb4fcc59c27f4100d2fb794b1fac6cbcca75a
 
 # Download installers for sops and node 8.x
 ADD https://github.com/mozilla/sops/releases/download/3.0.5/sops_3.0.4_amd64.deb /tmp/sops.deb
