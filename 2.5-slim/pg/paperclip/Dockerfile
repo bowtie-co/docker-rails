@@ -15,12 +15,12 @@ ENV INSTALL_PATH /app
 RUN mkdir -p $INSTALL_PATH
 WORKDIR $INSTALL_PATH
 
-ENV SOPS_SHA 6b1d245c59c46b0f7c1f5b9fa789e0236bdcb44b0602ca1a7cadb6d0aac64c3c
-ENV NODE_SHA d324fc90ddeba1d72460fb7a5d0cb4fcc59c27f4100d2fb794b1fac6cbcca75a
+ENV SOPS_SHA 27369eb0a50fd7c34f4a01fa8bbfee617a5883a83ad1118c377a21caf1a1a655
+ENV NODE_SHA bd7d8edd5555a4c5f97e3286802102d01e3ae1317fb41782e8561d564e91ba04
 
 # Download installers for sops and node 8.x
-ADD https://github.com/mozilla/sops/releases/download/3.0.5/sops_3.0.4_amd64.deb /tmp/sops.deb
-ADD https://deb.nodesource.com/setup_8.x /tmp/node.sh
+ADD https://github.com/mozilla/sops/releases/download/v3.5.0/sops_3.5.0_amd64.deb /tmp/sops.deb
+ADD https://deb.nodesource.com/setup_12.x /tmp/node.sh
 
 # Run system package installations
 RUN set -ex && \
