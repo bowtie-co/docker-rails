@@ -24,8 +24,9 @@ for version in "${versions[@]}"; do
     tag="$version-$variant"
 
     if [ -f $dockerfile ]; then
+      echo "Build $repo:$tag (from $dockerfile)"
       docker build -f $dockerfile -t $repo:$tag .
-      docker push $repo:$tag
+      # docker push $repo:$tag
     fi
   done
 done

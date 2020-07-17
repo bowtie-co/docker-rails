@@ -23,7 +23,7 @@ for version in "${versions[@]}"; do
 
     case "$variant" in
       pg*) pkg_list="$pkg_list libpq-dev" ;;
-      mysql*) pkg_list="$pkg_list default-libmysqlclient-dev" ;;
+      mysql*) pkg_list="$pkg_list libmysqlclient-dev" ;;
     esac
 
     case "$variant" in
