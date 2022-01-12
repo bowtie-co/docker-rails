@@ -4,6 +4,11 @@ FROM ruby:3.0
 # Baller maintainers
 LABEL maintainer "Charlie McClung <charlie@bowtie.co>, Brandon Cabael <brandon@bowtie.co>"
 
+# Set APT config overrides (helps build reliability)
+ENV APT_HTTP_TIMEOUT 30
+ENV APT_FTP_TIMEOUT 30
+ENV APT_NUM_RETRIES 3
+
 # Set EDITOR default to vim (used when editing env via sops)
 ENV EDITOR vim
 
@@ -21,6 +26,11 @@ ENV NODE_SHA b96cee1dee980102e4a74de64663b2f0424fac8058847c64d48c8684984442a6
 # Download installers for sops and node 8.x
 ADD https://github.com/mozilla/sops/releases/download/v3.7.1/sops_3.7.1_amd64.deb /tmp/sops.deb
 ADD https://deb.nodesource.com/setup_14.x /tmp/node.sh
+
+# Generate manual apt conf overrides (from env vars above)
+RUN echo 'Acquire::http::Timeout "${APT_HTTP_TIMEOUT}";' > /etc/apt/apt.conf.d/99-timeout && \
+      echo 'Acquire::ftp::Timeout "${APT_FTP_TIMEOUT}";' >> /etc/apt/apt.conf.d/99-timeout && \
+      echo 'APT::Acquire::Retries "${APT_NUM_RETRIES}";' > /etc/apt/apt.conf.d/80-retries
 
 # Run system package installations
 RUN set -ex && \
