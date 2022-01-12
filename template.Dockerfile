@@ -1,5 +1,5 @@
 # Use Bowtie Ruby base image (includes jemalloc)
-FROM bowtie/ruby:%%RUBY_IMAGE_TAG%%
+FROM ruby:%%RUBY_IMAGE_TAG%%
 
 # Baller maintainers
 LABEL maintainer "Charlie McClung <charlie@bowtie.co>, Brandon Cabael <brandon@bowtie.co>"
@@ -15,12 +15,12 @@ ENV INSTALL_PATH /app
 RUN mkdir -p $INSTALL_PATH
 WORKDIR $INSTALL_PATH
 
-ENV SOPS_SHA 6b1d245c59c46b0f7c1f5b9fa789e0236bdcb44b0602ca1a7cadb6d0aac64c3c
-ENV NODE_SHA 30084249bdd56119cb61be682a56829a11a4c94e21c5d005d326dedb66776104
+ENV SOPS_SHA affb3dd327f53a34cc9f9535991a21926985424365d6e6d4c18544e93ad4e02d
+ENV NODE_SHA b96cee1dee980102e4a74de64663b2f0424fac8058847c64d48c8684984442a6
 
 # Download installers for sops and node 8.x
-ADD https://github.com/mozilla/sops/releases/download/3.0.5/sops_3.0.4_amd64.deb /tmp/sops.deb
-ADD https://deb.nodesource.com/setup_8.x /tmp/node.sh
+ADD https://github.com/mozilla/sops/releases/download/v3.7.1/sops_3.7.1_amd64.deb /tmp/sops.deb
+ADD https://deb.nodesource.com/setup_14.x /tmp/node.sh
 
 # Run system package installations
 RUN set -ex && \
